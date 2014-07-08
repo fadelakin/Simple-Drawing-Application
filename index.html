@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-	<canvas width="600" height="400"></canvas>
+	<canvas	width="600" height="400"></canvas>
 	<div class="controls">
 		<ul>
 			<li class="red selected"></li>
@@ -21,7 +21,7 @@
 					<input id="red" name="red" type="range" min=0 max=255 value=0>
 				</p>
 				<p>
-					<label for"green">Green</label>
+					<label for="green">Green</label>
 					<input id="green" name="green" type="range" min=0 max=255 value=0>
 				</p>
 				<p>
@@ -29,10 +29,12 @@
 					<input id="blue" name="blue" type="range" min=0 max=255 value=0>
 				</p>
 			</div>
+			<div>
+				<button id="addNewColor">Add Color</button>
+			</div>
 		</div>
-		<button id="addNewColor">Add Color</button>
 	</div>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="javascript" charset="utf-8"></script>
-	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>	
 </body>
 </html>
