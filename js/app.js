@@ -3,7 +3,7 @@
 var color = $(".selected").css("background-color");
 
 // when clicking on control list items
-$(".controls li").click(function() {
+$(".controls").on("click", "li", function() {
 	// Deselect sibling elements
 	$(this).siblings().removeClass("selected");
 	// Select clicked element
@@ -12,7 +12,7 @@ $(".controls li").click(function() {
 	color = $(this).css("background-color");
 });
 
-// When new color is pressed
+// When "new color" is pressed
 $("#revealColorSelect").click(function() {
 	// Show color selection or hide the color selection
 	changeColor();
@@ -29,3 +29,13 @@ function changeColor() {
 
 // When color sliders change
 $("input[type=range]").change(changeColor);
+
+// When "Add Color" is pressed
+$("#addNewColor").click(function() {
+	// Append the color to the controls ui
+	var $newColor = $("<li></li>");
+	$newColor.css("background-color", $("#newColor").css("background-color"));
+	$(".controls ul").append($newColor);
+	// Select the new color
+	$newColor.click();
+});
