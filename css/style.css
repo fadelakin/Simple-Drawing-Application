@@ -5,7 +5,7 @@ body {
 
 canvas {
 	background: #fff;
-	display: block;
+	display: block;;
 	margin: 50px auto 10px;
 	border-radius: 5px;
 	box-shadow: 0 4px 0 0 #222;
@@ -30,7 +30,7 @@ ul {
 }
 
 ul li, #newColor {
-	display: block;
+	display: inline-block;;
 	height: 54px;
 	width: 54px;
 	border-radius: 60px;
@@ -69,9 +69,18 @@ button {
 	outline: none;
 	cursor: pointer;
 	text-shadow: 0 1px #6A845F;
-	display: block;
+	display: inline-block;;;
 	font-size: 16px;
 	line-height: 40px;
+}
+
+#outer {
+    width: 100%;
+    text-align: center;
+}
+
+.inner {
+    display: inline-block;
 }
 
 #revealColorSelect {
@@ -80,6 +89,22 @@ button {
 	margin: 10px auto;
 	padding: 5px 20px;
 	width: 160px;
+}
+
+#increaseStroke {
+    border: none;
+	border-radius: 5px;
+	margin: 10px auto;
+	padding: 5px 20px;
+	width: 300px;
+}
+
+#decreaseStroke {
+    border: none;
+	border-radius: 5px;
+	margin: 10px auto;
+	padding: 5px 20px;
+	width: 300px;
 }
 
 /* New Color Palette */

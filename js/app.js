@@ -5,6 +5,7 @@ var context = $("canvas")[0].getContext("2d");
 var $canvas = $("canvas");
 var lastEvent;
 var mouseDown = false;
+var lineWidth = 1;
 
 // when clicking on control list items
 $(".controls").on("click", "li", function() {
@@ -44,6 +45,22 @@ $("#addNewColor").click(function() {
 	$newColor.click();
 });
 
+// increase stroke
+$("#increaseStroke").click(function() {
+    lineWidth++;
+    console.log(lineWidth);
+});
+
+// decrease stroke
+$("#decreaseStroke").click(function() {
+    if (lineWidth <= 1) {
+        lineWidth = 1;
+    } else {
+        lineWidth--;
+    }
+    console.log(lineWidth);
+});
+
 // On mouse events on the canvas
 $canvas.mousedown(function(e) {
 	lastEvent = e;
@@ -55,6 +72,7 @@ $canvas.mousedown(function(e) {
 		context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
 		context.lineTo(e.offsetX, e.offsetY);
 		context.strokeStyle = color;
+        context.lineWidth = lineWidth;
 		context.stroke();
 		lastEvent = e;
 	}
