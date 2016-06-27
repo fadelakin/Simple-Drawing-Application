@@ -6,6 +6,11 @@ var $canvas = $("canvas");
 var lastEvent;
 var mouseDown = false;
 var lineWidth = 1;
+var delay = 250;
+var nextTime = 0;
+var isDown = 0;
+
+requestAnimationFrame(watcher);
 
 // when clicking on control list items
 $(".controls").on("click", "li", function() {
@@ -52,6 +57,14 @@ $("#increaseStroke").click(function() {
     $(".stroke-width").text("The brush size is " + lineWidth);
 });
 
+// TODO: press and hold to increase stroke
+$("#increaseStroke").mousedown(function(e) {
+    handleMouseDown(e);
+});
+$("#increaseStroke").mouseup(function(e) {
+    handleMouseUp(e);
+});
+
 // decrease stroke
 $("#decreaseStroke").click(function() {
     if (lineWidth <= 1) {
@@ -62,6 +75,8 @@ $("#decreaseStroke").click(function() {
     // indicate the size of the brush as the stroke is decreased
     $(".stroke-width").text("The brush size is " + lineWidth);
 });
+
+// TODO: press and hold to decrease stroke
 
 $("#export").click(function() {
     window.open().location = document.getElementsByTagName("canvas")[0].toDataURL("image/png");
@@ -87,3 +102,31 @@ $canvas.mousedown(function(e) {
 }).mouseleave(function() {
 	$canvas.mouseup();
 });
+
+function handleMouseDown(e) {
+    // tell the browser we're handling this events
+    e.preventDefault();
+    e.stopPropagation();
+
+    isDown = (e.target.id=='increaseStroke') ? 1 : -1;
+}
+
+function handleMouseUp(e) {
+    // tell the browser we're handling this events
+    e.preventDefault();
+    e.stopPropagation();
+
+    isDown = 0;
+}
+
+function watcher(time) {
+    requestAnimationFrame(watcher);
+    if (time < nextTime) {
+        return;
+    }
+    nextTime = time + delay;
+    if (isDown !== 0) {
+        lineWidth += isDown;
+        $(".stroke-width").text("The brush size is " + lineWidth);
+    }
+}
