@@ -48,6 +48,7 @@ $("#addNewColor").click(function() {
 // increase stroke
 $("#increaseStroke").click(function() {
     lineWidth++;
+    // indicate the size of the brush as the stroke is increased
     $(".stroke-width").text("The brush size is " + lineWidth);
 });
 
@@ -57,9 +58,9 @@ $("#decreaseStroke").click(function() {
         lineWidth = 1;
     } else {
         lineWidth--;
-        $(".stroke-width").text("The brush size is " + lineWidth);
     }
-    console.log(lineWidth);
+    // indicate the size of the brush as the stroke is decreased
+    $(".stroke-width").text("The brush size is " + lineWidth);
 });
 
 $("#export").click(function() {
