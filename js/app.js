@@ -61,6 +61,10 @@ $("#decreaseStroke").click(function() {
     console.log(lineWidth);
 });
 
+$("#export").click(function() {
+    window.open().location = document.getElementsByTagName("canvas")[0].toDataURL("image/png");
+});
+
 // On mouse events on the canvas
 $canvas.mousedown(function(e) {
 	lastEvent = e;
