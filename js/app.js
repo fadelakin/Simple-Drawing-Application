@@ -57,7 +57,7 @@ $("#increaseStroke").click(function() {
     $(".stroke-width").text("The brush size is " + lineWidth);
 });
 
-// TODO: press and hold to increase stroke
+// press and hold to increase stroke
 $("#increaseStroke").mousedown(function(e) {
     handleMouseDown(e);
 });
