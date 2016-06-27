@@ -115,6 +115,11 @@ button {
 	width: 160px;
 }
 
+.stroke-width {
+    text-align: center;
+    color: white;
+}
+
 /* New Color Palette */
 #colorSelect {
 	background: #fff;
